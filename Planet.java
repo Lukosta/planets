@@ -8,17 +8,34 @@ public class Planet {
     double speed = 1;
     int x = 1920;
     int y = 1080;
-    V2 pos = new V2(0, 0);
+    V2 pos = new V2(1920, 1080);
+    int width = 100;
+    int height = 100;
+    Color color = Color.yellow;
 
+    public void setColor(Color c){
+        this.color = c;
+    }
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-    void setParent (Planet p){
-        parent = p;
+    public void setWidth(int width) {
+        this.width = width;
     }
-    void setRadius(double r){
-        radius = r;
+
+    public void setParent (Planet p){
+        this.parent = p;
     }
-    void setSpeed(double s){
-        speed = s;
+    public  void setRadius(double r){
+        this.radius = r;
+    }
+    public void setSpeed(double s){
+        this.speed = s;
+    }
+
+    public void setPos(V2 pos) {
+        this.pos = pos;
     }
 
     public Planet getParent() {
@@ -40,8 +57,8 @@ public class Planet {
     }
 
     void drawMe(Graphics2D g){
-        g.setColor(Color.yellow);
-        g.fillOval((x / 2) - 50,  (y / 2) - 50, 100, 100);
+        g.setColor(color);
+        g.fillOval((myPos().getXInt() / 2) - 50,  (myPos().getYInt() / 2) - 50, width, height);
     }
 
     V2 myPos(){

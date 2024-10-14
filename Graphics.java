@@ -14,52 +14,112 @@ public class Graphics extends JFrame implements KeyListener {
     static {
         Planet sun = new Planet();
         planets.add(sun);
+        sun.setSpeed(0);
 
         Planet mercury = new Planet();
         planets.add(mercury);
         mercury.setParent(sun);
+        mercury.setPos(new V2(175, 200));
+        mercury.setWidth(50);
+        mercury.setHeight(50);
+        mercury.setSpeed(0.2);
+        mercury.setColor(new Color(189, 38, 83));
+
 
         Planet venus = new Planet();
         planets.add(venus);
         venus.setParent(sun);
+        venus.setPos(new V2(300,  325));
+        venus.setWidth(60);
+        venus.setHeight(60);
+        venus.setSpeed(0.2);
+        venus.setColor(new Color(189, 126, 38));
 
         Planet earth = new Planet();
         planets.add(earth);
         earth.setParent(sun);
+        earth.setPos(new V2(450,  475));
+        earth.setWidth(62);
+        earth.setHeight(62);
+        earth.setSpeed(0.2);
+        earth.setColor(new Color(189, 126, 38));
+
 
         Planet mars = new Planet();
         planets.add(mars);
         mars.setParent(sun);
+        mars.setPos(new V2(600,  625));
+        mars.setWidth(64);
+        mars.setHeight(64);
+        mars.setSpeed(0.2);
+        mars.setColor(new Color(189, 126, 38));
+
 
         Planet jupiter = new Planet();
         planets.add(jupiter);
         jupiter.setParent(sun);
+        jupiter.setPos(new V2(750,  775));
+        jupiter.setWidth(60);
+        jupiter.setHeight(60);
+        jupiter.setSpeed(0.2);
+        jupiter.setColor(new Color(189, 126, 38));
+
 
         Planet saturn = new Planet();
         planets.add(saturn);
         saturn.setParent(sun);
+        saturn.setPos(new V2(300,  325));
+        saturn.setWidth(60);
+        saturn.setHeight(60);
+        saturn.setSpeed(0.2);
+        saturn.setColor(new Color(189, 126, 38));
+
 
         Planet neptune = new Planet();
         planets.add(neptune);
         neptune.setParent(sun);
+        neptune.setPos(new V2(300,  325));
+        neptune.setWidth(60);
+        neptune.setHeight(60);
+        neptune.setSpeed(0.2);
+        neptune.setColor(new Color(189, 126, 38));
+
 
         Planet uranus = new Planet();
         planets.add(uranus);
         uranus.setParent(sun);
+        uranus.setPos(new V2(300,  325));
+        uranus.setWidth(60);
+        uranus.setHeight(60);
+        uranus.setSpeed(0.2);
+        uranus.setColor(new Color(189, 126, 38));
+
 
         Planet pluto = new Planet();
         planets.add(pluto);
         pluto.setParent(sun);
+        pluto.setPos(new V2(300,  325));
+        pluto.setWidth(60);
+        pluto.setHeight(60);
+        pluto.setSpeed(0.2);
+        pluto.setColor(new Color(189, 126, 38));
+
 
         Planet moon = new Planet();
         planets.add(moon);
         moon.setParent(earth);
+        moon.setPos(new V2(300,  325));
+        moon.setWidth(60);
+        moon.setHeight(60);
+        moon.setSpeed(0.2);
+        moon.setColor(new Color(189, 126, 38));
+
     }
 
 
     public static void draw(Graphics2D g) {
         g.setColor(new Color(42, 15, 73));
-        g.fillRect(0, 0, 1920, 1080);
+        g.fillRect(0, 0, 1950, 1080);
         for( Planet p : planets){
             p.update(1.0 / 60);
         }
