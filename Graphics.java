@@ -12,8 +12,48 @@ import java.util.ArrayList;
 public class Graphics extends JFrame implements KeyListener {
     static ArrayList<Planet> planets = new ArrayList<>();
     static {
-        Planet p = new Planet();
-        planets.add(p);
+        Planet sun = new Planet();
+        planets.add(sun);
+
+        Planet mercury = new Planet();
+        planets.add(mercury);
+        mercury.setParent(sun);
+
+        Planet venus = new Planet();
+        planets.add(venus);
+        venus.setParent(sun);
+
+        Planet earth = new Planet();
+        planets.add(earth);
+        earth.setParent(sun);
+
+        Planet mars = new Planet();
+        planets.add(mars);
+        mars.setParent(sun);
+
+        Planet jupiter = new Planet();
+        planets.add(jupiter);
+        jupiter.setParent(sun);
+
+        Planet saturn = new Planet();
+        planets.add(saturn);
+        saturn.setParent(sun);
+
+        Planet neptune = new Planet();
+        planets.add(neptune);
+        neptune.setParent(sun);
+
+        Planet uranus = new Planet();
+        planets.add(uranus);
+        uranus.setParent(sun);
+
+        Planet pluto = new Planet();
+        planets.add(pluto);
+        pluto.setParent(sun);
+
+        Planet moon = new Planet();
+        planets.add(moon);
+        moon.setParent(earth);
     }
 
 
@@ -26,6 +66,7 @@ public class Graphics extends JFrame implements KeyListener {
 
         for( Planet p : planets){
             p.drawMe(g);
+
         }
     }
 
