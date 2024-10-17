@@ -19,99 +19,100 @@ public class Graphics extends JFrame implements KeyListener {
         Planet mercury = new Planet();
         planets.add(mercury);
         mercury.setParent(sun);
-        mercury.setPos(new V2(175, 200));
-        mercury.setWidth(50);
-        mercury.setHeight(50);
-        mercury.setSpeed(0.2);
+        mercury.setPos(new V2(175, 175));
+        mercury.setWidth(10);
+        mercury.setHeight(10);
+        mercury.setSpeed(0.4);
+        mercury.setRadius(4);
         mercury.setColor(new Color(189, 38, 83));
 
 
         Planet venus = new Planet();
         planets.add(venus);
         venus.setParent(sun);
-        venus.setPos(new V2(300,  325));
-        venus.setWidth(60);
-        venus.setHeight(60);
-        venus.setSpeed(0.2);
+        venus.setPos(new V2(300,  300));
+        venus.setWidth(12);
+        venus.setHeight(12);
+        venus.setSpeed(0.4);
         venus.setColor(new Color(189, 126, 38));
 
         Planet earth = new Planet();
         planets.add(earth);
         earth.setParent(sun);
-        earth.setPos(new V2(450,  475));
-        earth.setWidth(62);
-        earth.setHeight(62);
-        earth.setSpeed(0.2);
+        earth.setPos(new V2(450,  450));
+        earth.setWidth(14);
+        earth.setHeight(14);
+        earth.setSpeed(0.6);
         earth.setColor(new Color(189, 126, 38));
 
 
         Planet mars = new Planet();
         planets.add(mars);
         mars.setParent(sun);
-        mars.setPos(new V2(600,  625));
-        mars.setWidth(64);
-        mars.setHeight(64);
-        mars.setSpeed(0.2);
+        mars.setPos(new V2(600,  600));
+        mars.setWidth(16);
+        mars.setHeight(16);
+        mars.setSpeed(0.7);
         mars.setColor(new Color(189, 126, 38));
 
 
         Planet jupiter = new Planet();
         planets.add(jupiter);
         jupiter.setParent(sun);
-        jupiter.setPos(new V2(750,  775));
-        jupiter.setWidth(60);
-        jupiter.setHeight(60);
-        jupiter.setSpeed(0.2);
+        jupiter.setPos(new V2(750,  750));
+        jupiter.setWidth(18);
+        jupiter.setHeight(18);
+        jupiter.setSpeed(0.5);
         jupiter.setColor(new Color(189, 126, 38));
 
 
         Planet saturn = new Planet();
         planets.add(saturn);
         saturn.setParent(sun);
-        saturn.setPos(new V2(300,  325));
-        saturn.setWidth(60);
-        saturn.setHeight(60);
-        saturn.setSpeed(0.2);
+        saturn.setPos(new V2(850,  850));
+        saturn.setWidth(20);
+        saturn.setHeight(20);
+        saturn.setSpeed(0.3);
         saturn.setColor(new Color(189, 126, 38));
 
 
         Planet neptune = new Planet();
         planets.add(neptune);
         neptune.setParent(sun);
-        neptune.setPos(new V2(300,  325));
-        neptune.setWidth(60);
-        neptune.setHeight(60);
-        neptune.setSpeed(0.2);
+        neptune.setPos(new V2(950,  950));
+        neptune.setWidth(13);
+        neptune.setHeight(13);
+        neptune.setSpeed(0.3);
         neptune.setColor(new Color(189, 126, 38));
 
 
         Planet uranus = new Planet();
         planets.add(uranus);
         uranus.setParent(sun);
-        uranus.setPos(new V2(300,  325));
-        uranus.setWidth(60);
-        uranus.setHeight(60);
-        uranus.setSpeed(0.2);
+        uranus.setPos(new V2(1050,  1050));
+        uranus.setWidth(12);
+        uranus.setHeight(12);
+        uranus.setSpeed(0.4);
         uranus.setColor(new Color(189, 126, 38));
 
 
         Planet pluto = new Planet();
         planets.add(pluto);
         pluto.setParent(sun);
-        pluto.setPos(new V2(300,  325));
-        pluto.setWidth(60);
-        pluto.setHeight(60);
-        pluto.setSpeed(0.2);
+        pluto.setPos(new V2(1200,  1200));
+        pluto.setWidth(10);
+        pluto.setHeight(10);
+        pluto.setSpeed(0.3);
         pluto.setColor(new Color(189, 126, 38));
 
 
         Planet moon = new Planet();
         planets.add(moon);
         moon.setParent(earth);
-        moon.setPos(new V2(300,  325));
-        moon.setWidth(60);
-        moon.setHeight(60);
-        moon.setSpeed(0.2);
+        moon.setPos(new V2(100,  100));
+        moon.setWidth(5);
+        moon.setHeight(5);
+        moon.setSpeed(0.8);
         moon.setColor(new Color(189, 126, 38));
 
     }
@@ -129,13 +130,23 @@ public class Graphics extends JFrame implements KeyListener {
 
         }
     }
+    public static V2 toScreen(V2 world){
+        return new V2(((world.getX() - lookAt.getX()) * zoom) + w / 2 , ((world.getY() - lookAt.getY()) * zoom) + h / 2);
+    }
 
     //Функция вызывается при нажатии клавиши один раз, и при удерживании несколько раз в секунду
     public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_1){
+            zoom = zoom + 0.1;
+        }
+        if(e.getKeyCode() == KeyEvent.VK_2){
+            zoom = zoom - 0.1;
+        }
     }
-
+    static V2 lookAt = new V2(1920 / 2, 1080 / 2);
     static final int w = 1920;
     static final int h = 1080;
+    static double zoom = 1;
 
     //магический код позволяющий всему работать, лучше не трогать
     public static void main(String[] args) throws InterruptedException {

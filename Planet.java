@@ -6,9 +6,7 @@ public class Planet {
     Planet parent = null;
     double radius = 10;
     double speed = 1;
-    int x = 1920;
-    int y = 1080;
-    V2 pos = new V2(1920, 1080);
+    V2 pos = new V2(1920 / 2, 1080 / 2);
     int width = 100;
     int height = 100;
     Color color = Color.yellow;
@@ -58,7 +56,8 @@ public class Planet {
 
     void drawMe(Graphics2D g){
         g.setColor(color);
-        g.fillOval((myPos().getXInt() / 2) - 50,  (myPos().getYInt() / 2) - 50, width, height);
+        V2 drawAt = Graphics.toScreen(myPos());
+        g.fillOval(drawAt.getXInt() - width / 2,  drawAt.getYInt() - height / 2, width, height);
     }
 
     V2 myPos(){
